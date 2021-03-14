@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="D:\Maven Repository\mysql\mysql-connector-java\8.0.22\mysql-connector-java-8.0.22.jar"/>
+
+    <context id="MysqlTables" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="addRemarkComments" value="true"/>
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://8.129.134.41:3306/mooc?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"
+                        userId="root"
+                        password="123456">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="edu.dhu.mooc.entity"
+                            targetProject="src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mappers" targetProject="src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="edu.dhu.mooc.dao"
+                             targetProject="src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <table schema="mooc"
+               tableName="student"
+               domainObjectName="Student"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true" />
+            <ignoreColumn column="head_img_path"/>
+        </table>
+
+        <table schema="mooc" tableName="teacher"
+               domainObjectName="Teacher"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+
+            <property name="useActualColumnNames" value="true"/>
+            <ignoreColumn column="head_img_path"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

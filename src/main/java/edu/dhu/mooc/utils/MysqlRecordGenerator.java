@@ -41,7 +41,6 @@ public class MysqlRecordGenerator {
         student.setS_name(RandomFunctions.getRandomChineseName());
         student.setGender(RandomFunctions.getRandomGender());
         student.setPhone(RandomFunctions.getRandPhoneNumber());
-        student.setS_num(RandomFunctions.getRandomStuNum());
         System.out.println(student);
     }
 

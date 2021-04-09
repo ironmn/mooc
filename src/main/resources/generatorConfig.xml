@@ -68,5 +68,18 @@
             <ignoreColumn column="head_img_path"/>
         </table>
 
+        <table schema="mooc" tableName="course"
+               domainObjectName="Course"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+
+            <property name="useActualColumnNames" value="true"/>
+            <ignoreColumn column="c_img"/>
+            <ignoreColumn column="c-mail"/>
+        </table>
+
     </context>
 </generatorConfiguration>

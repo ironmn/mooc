@@ -157,6 +157,7 @@ public class RandomFunctions {
         return new String(chars);
     }
     //生成随机学号
+
     public static String getRandomStuNum(){
         String ans = "";
         Random random = new Random();

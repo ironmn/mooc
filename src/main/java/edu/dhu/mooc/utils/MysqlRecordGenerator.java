@@ -3,12 +3,9 @@ package edu.dhu.mooc.utils;
 import edu.dhu.mooc.dao.StudentMapper;
 import edu.dhu.mooc.dao.TeacherMapper;
 import edu.dhu.mooc.entity.Student;
-import edu.dhu.mooc.entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Random;
 import java.util.UUID;
 
 /**

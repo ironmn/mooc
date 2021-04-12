@@ -92,5 +92,40 @@ public interface CourseMapper {
      */
     List<CourseInfo> findAllCourseInfoList();
 
+    /**
+     * SQL 语句:
+     *  select
+     *       c_id,
+     *       c_name,
+     *       t_name,
+     *       c_content
+     *     from
+     *         course,
+     *         teacher
+     *     where
+     *         c_id = #{c_id} and
+     *         course.`t_id` = teacher.`t_id`
+     * @param c_id 课程id
+     * @return courseDetail
+     */
     CourseDetail findCourseDetailById(@Param("c_id") String c_id);
+
+
+    /**
+     * 添加选课记录
+     * @param s_id 学生id
+     * @param c_id 课程id
+     */
+    void addSCRecord(@Param("s_id") String s_id, @Param("c_id") String c_id);
+
+    /**
+     * SQL
+     *     delete from sc
+     *     where c_id = #{c_id} and
+     *           s_id = #{s_id}
+     * @param c_id
+     * @param s_id
+     */
+    void dropSCRecordById(@Param("c_id") String c_id, @Param("s_id") String s_id);
+
 }

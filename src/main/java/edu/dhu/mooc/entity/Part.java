@@ -22,7 +22,7 @@ public class Part {
     @ApiModelProperty(value = "章节对应的唯一id",example = "aaa004")
     private String p_id;
     @ApiModelProperty(value = "章节对应的编号",example = "1")
-    private String p_index;
+    private Integer p_index;
     @ApiModelProperty(value = "章节名字",example = "绪论")
     private String p_name;
 }

@@ -22,4 +22,8 @@ public interface CourseService {
     List<CourseInfo> findAllCourseList();
 
     CourseDetail getCourseDetailById(String c_id);
+
+    boolean addCourse(String c_id,String s_id);
+
+    void dropSCRecordById(String c_id, String s_id) throws Exception;
 }

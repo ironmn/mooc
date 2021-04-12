@@ -3,7 +3,7 @@ package edu.dhu.mooc.service.impl;
 import edu.dhu.mooc.dao.StudentMapper;
 import edu.dhu.mooc.dao.TeacherMapper;
 import edu.dhu.mooc.entity.Student;
-import edu.dhu.mooc.entity.Teacher;
+import edu.dhu.mooc.entity.teacher.Teacher;
 import edu.dhu.mooc.entity.User;
 import edu.dhu.mooc.service.LoginService;
 import edu.dhu.mooc.utils.RandomFunctions;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {

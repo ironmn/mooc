@@ -19,7 +19,7 @@ import java.io.Serializable;
 @ApiModel
 @ToString
 @AllArgsConstructor
-public class Course implements Serializable {
+public class Course {
     @ApiModelProperty(value ="课程编号",dataType = "java.lang.String",required = true,example = "aaa001")
     private String c_id;
     @ApiModelProperty(value = "课程对应的教师编号",dataType = "java.lang.String",
@@ -30,4 +30,9 @@ public class Course implements Serializable {
     @ApiModelProperty(value = "课程内容",dataType = "string",example = "本节课是大一学生的必修课" +
             "，主要内容如下：xxxxxxx")
     private String c_content;
+
+    @ApiModelProperty(value = "课程被选的人数",
+            dataType = "java.lang.Integer" ,
+            example = "13" )
+    private Integer c_count;
 }

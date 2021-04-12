@@ -1,7 +1,8 @@
 package edu.dhu.mooc.dao;
 
 import edu.dhu.mooc.entity.Student;
-import edu.dhu.mooc.entity.Teacher;
+import edu.dhu.mooc.entity.teacher.Teacher;
+import edu.dhu.mooc.entity.teacher.TeacherCourse;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -62,4 +63,31 @@ public interface TeacherMapper {
      * @mbg.generated Sun Mar 14 16:18:31 CST 2021
      */
     int updateByPrimaryKey(Teacher record);
+
+    /**
+     * SQL (本项目中最复杂)
+     *     SELECT
+     *       course.c_id AS c_id,
+     *       course.c_name AS c_name,
+     *       c_count
+     *     FROM
+     *       course,
+     *       (SELECT c_id, COUNT(*) AS c_count FROM sc GROUP BY c_id) c_cnt
+     *     WHERE
+     *       course.`c_id` = c_cnt.`c_id` AND
+     *       course.`t_id` = #{t_id}
+     * 查询t_id对应的老师上的所有课程
+     * @param t_id
+     * @return
+     */
+    List<TeacherCourse> findMyTeachCourse(@Param("t_id") String t_id);
+
+    /**
+     * SQL
+     *
+     * @param c_id 课程id
+     * @return 学生对象的List集合
+     *
+     */
+    List<Student> getStudentListByCourseId(@Param("c_id") String c_id);
 }

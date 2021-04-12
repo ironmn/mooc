@@ -59,4 +59,13 @@ class CourseMapperTest {
         CourseDetail ans = courseMapper.findCourseDetailById("aaa004");
         System.out.println(ans);
     }
+
+
+    /**
+     * 测试成功
+     */
+    @Test
+    public void addSCRecordTest(){
+        courseMapper.addSCRecord("1189360","aaa001");
+    }
 }

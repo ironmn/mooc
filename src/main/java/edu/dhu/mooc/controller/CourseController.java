@@ -6,10 +6,7 @@ import edu.dhu.mooc.entity.Part;
 import edu.dhu.mooc.service.CourseService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -66,4 +63,32 @@ public class CourseController {
         return courseService.getCourseDetailById(c_id);
     }
 
+    @ApiOperation(value = "选课",notes = "通过id选择要选的课程")
+    @PostMapping("/add/{c_id}/{s_id}")
+    //同时把学生的学号和课程的编号加进去
+    public String addCourse(@PathVariable("c_id") String c_id,
+                            @PathVariable("s_id") String s_id){
+        //如果插入成功，那么返回success信息
+        if(courseService.addCourse(c_id,s_id)){
+            return "success";
+        }
+        //如果插入失败，也就是该课程已经存在了，那么返回错误的消息
+        else{
+            return "failed";
+        }
+    }
+
+    @ApiOperation(value = "退课",notes = "通过学生id和课程id删除选课记录")
+    @PostMapping("/delete/{c_id}/{s_id}")
+    public String dropSCRecordById(@PathVariable("c_id") String c_id,
+                                   @PathVariable("s_id") String s_id){
+        try{
+            courseService.dropSCRecordById(c_id,s_id);
+        }catch (Exception e){
+            //如果出现异常就返回错误的信息
+            e.printStackTrace();
+            return  "failed";
+        }
+        return "success";
+    }
 }

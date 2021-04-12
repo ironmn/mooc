@@ -62,4 +62,7 @@ public interface StudentMapper {
      * @mbg.generated Sun Mar 14 16:18:31 CST 2021
      */
     int updateByPrimaryKey(Student record);
+
+
+    List<Student> getStudentListByCourseId(@Param("c_id") String c_id);
 }

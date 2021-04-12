@@ -44,4 +44,43 @@ public class CourseServiceImpl implements CourseService {
     public CourseDetail getCourseDetailById(String c_id) {
         return courseMapper.findCourseDetailById(c_id);
     }
+
+    /**
+     *
+     * @param c_id
+     * @param s_id
+     * @return boolean
+     * @apiNote false表示选课出现错误，true表示正常
+     */
+    @Override
+    public boolean addCourse(String c_id, String s_id) {
+        //先找出学生选的课程。
+        //如果发现有重复，那么就不选
+        List<CourseInfo> courseListById = courseMapper.findCourseListById(s_id);
+        for(CourseInfo tmp : courseListById){
+            //如果发现课程的编号出现重复，就返回false；
+            if(tmp.getC_id().equals(c_id)){
+                return false;
+            }
+        }
+        //由于sc表有外键约束，如果记录的内容有问题，就会产生异常
+        try{
+            courseMapper.addSCRecord(s_id,c_id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+
+    /**
+     * 删除选课
+     * @param c_id 课程id
+     * @param s_id 学生id
+     */
+    @Override
+    public void dropSCRecordById(String c_id, String s_id) throws Exception {
+        courseMapper.dropSCRecordById(c_id,s_id);
+    }
 }

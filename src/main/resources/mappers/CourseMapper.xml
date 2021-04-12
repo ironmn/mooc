@@ -129,6 +129,17 @@
     delete from course
     where c_id = #{c_id,jdbcType=VARCHAR}
   </delete>
+
+  <delete id="dropSCRecordById" parameterType="string">
+    delete from sc
+    where c_id = #{c_id} and
+          s_id = #{s_id}
+  </delete>
+
+  <insert id="addSCRecord" parameterType="java.lang.String">
+    insert into sc values(#{c_id},#{s_id},-1)
+  </insert>
+
   <insert id="insert" parameterType="edu.dhu.mooc.entity.course.Course">
     <!--
       WARNING - @mbg.generated

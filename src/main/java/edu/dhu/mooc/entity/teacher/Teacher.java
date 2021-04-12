@@ -1,4 +1,4 @@
-package edu.dhu.mooc.entity;
+package edu.dhu.mooc.entity.teacher;
 
 import lombok.Data;
 

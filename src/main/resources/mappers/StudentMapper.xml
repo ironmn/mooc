@@ -143,4 +143,18 @@
     where phone = #{phone} and
           password = #{password}
   </select>
+
+  <select id="getStudentListByCourseId" parameterType="string"
+          resultMap="BaseResultMap">
+    SELECT
+      *
+    FROM
+      student
+    WHERE
+        s_id IN (
+        SELECT sc.`s_id` FROM
+          sc
+        WHERE sc.`c_id` = #{c_id}
+      )
+  </select>
 </mapper>

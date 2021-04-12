@@ -44,20 +44,45 @@
         </javaClientGenerator>
 
 
-        <table schema="mooc"
-               tableName="student"
-               domainObjectName="Student"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="true" />
-            <ignoreColumn column="head_img_path"/>
-        </table>
+<!--        <table schema="mooc"-->
+<!--               tableName="student"-->
+<!--               domainObjectName="Student"-->
+<!--               enableCountByExample="false"-->
+<!--               enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            <property name="useActualColumnNames" value="true" />-->
+<!--            <ignoreColumn column="head_img_path"/>-->
+<!--        </table>-->
 
-        <table schema="mooc" tableName="teacher"
-               domainObjectName="Teacher"
+<!--        <table schema="mooc" tableName="teacher"-->
+<!--               domainObjectName="Teacher"-->
+<!--               enableCountByExample="false"-->
+<!--               enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--            <ignoreColumn column="head_img_path"/>-->
+<!--        </table>-->
+
+<!--        <table schema="mooc" tableName="course"-->
+<!--               domainObjectName="Course"-->
+<!--               enableCountByExample="false"-->
+<!--               enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--            <ignoreColumn column="c_img"/>-->
+<!--            <ignoreColumn column="c-mail"/>-->
+<!--        </table>-->
+
+        <table schema="mooc" tableName="part"
+               domainObjectName="Part"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
@@ -65,7 +90,7 @@
                selectByExampleQueryId="false">
 
             <property name="useActualColumnNames" value="true"/>
-            <ignoreColumn column="head_img_path"/>
+            <ignoreColumn column="c_id"/>
         </table>
 
     </context>

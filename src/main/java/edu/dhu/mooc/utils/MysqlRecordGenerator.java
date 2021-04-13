@@ -3,12 +3,9 @@ package edu.dhu.mooc.utils;
 import edu.dhu.mooc.dao.StudentMapper;
 import edu.dhu.mooc.dao.TeacherMapper;
 import edu.dhu.mooc.entity.Student;
-import edu.dhu.mooc.entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -41,7 +38,6 @@ public class MysqlRecordGenerator {
         student.setS_name(RandomFunctions.getRandomChineseName());
         student.setGender(RandomFunctions.getRandomGender());
         student.setPhone(RandomFunctions.getRandPhoneNumber());
-        student.setS_num(RandomFunctions.getRandomStuNum());
         System.out.println(student);
     }
 

@@ -45,7 +45,6 @@ public class MysqlRecordGenerator {
         student.setGender(RandomFunctions.getRandomGender());
         student.setPhone(RandomFunctions.getRandPhoneNumber());
         student.setPassword(RandomFunctions.getRandomPwd());
-        student.setS_num(RandomFunctions.getRandomStuNum());
         studentMapper.insert(student);
     }
     @Test
@@ -53,6 +52,12 @@ public class MysqlRecordGenerator {
         for(int i = 0;i<100;i++){
             this.generateStudent();
         }
+    }
+
+    @Test
+    public void getRandomPhoneNum(){
+        String randPhoneNumber = RandomFunctions.getRandPhoneNumber();
+        System.out.println(randPhoneNumber);
     }
 }
 

@@ -1,16 +1,1 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<header th:replace="~{common/head :: header}"></header>
-<body>
-<div id="app" style="margin: 20px 20%">
-	<form th:action="@{/user/login}" method="post">
-		手机号<input type="text" name="phone" placeholder="手机号"/>
-		密码<input type="password" name="password" placeholder="密码"/>
-		<input type="submit" value="登录">
-	</form>
-	<br>
-	<p th:value="${err_info}">
-	</p>
-</div>
-</body>
-</html>
+<!doctype html><html lang="en" xmlns:th="http://www.thymeleaf.org"><header th:replace="~{common/head :: header}"></header><body><div id="app" style="margin: 20px 20%">	<form th:action="@{/user/login}" method="post">		手机号<input type="text" name="phone" placeholder="手机号"/>		密码<input type="password" name="password" placeholder="密码"/>		<input type="submit" value="登录">	</form>	<br>	<p th:value="${err_info}">	</p>	<p>		xiyiming's push	</p></div></body></html>

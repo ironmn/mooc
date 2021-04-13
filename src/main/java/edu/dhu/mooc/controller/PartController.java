@@ -1,5 +1,6 @@
 package edu.dhu.mooc.controller;
 
+import edu.dhu.mooc.entity.Part;
 import edu.dhu.mooc.service.PartService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -7,10 +8,12 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Enumeration;
 
 /**
  * @author Xie yiming
@@ -48,8 +51,41 @@ public class PartController {
     }
 
 
+    @ApiOperation("为指定的课程插入新的章节")
+    @PostMapping(value = "/insert")
+    @ApiImplicitParams(
+            @ApiImplicitParam(name = "part",
+            value = "章节对象",
+            dataTypeClass = edu.dhu.mooc.entity.Part.class)
+    )
+    public String insertNewCoursePart(@RequestBody Part part)  {
+        try{
+            if(partService.addNewPart(part)){
+                return "success";
+            }
+            else return "failed";
+        }catch (Exception e){
+            //从日志中捕获异常
+            log.error(e.getMessage());
+            return "failed";
+        }
+    }
 
 
+    @ApiOperation("删除指定的章节")
+    @PostMapping("/delete/{p_id}")
 
-
+    public String deletePartById(@PathVariable("p_id") String p_id){
+        try{
+            if(partService.deletePart(p_id)){
+                return "success";
+            }
+            else{
+                return "failed";
+            }
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return "failed";
+        }
+    }
 }

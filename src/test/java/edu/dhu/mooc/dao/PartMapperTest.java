@@ -36,4 +36,15 @@ class PartMapperTest {
     .out.println(partMapper.getPartListByCourseId("aaa003"));
 
     }
+
+
+    @Test
+    public void insertTest(){
+        Part part = new Part();
+        part.setP_id("aaa004_1000");
+        part.setP_index(1000);
+        part.setP_name("这是测试章节的name");
+        part.setC_id("aaa004");
+        partMapper.insert(part);
+    }
 }

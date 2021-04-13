@@ -32,13 +32,13 @@ public class TeacherPart extends Part {
 
     //全参构造函数(调用父类的全参构造函数)
     public TeacherPart(String p_id,Integer p_index,
-                       String p_name,String has_file,String has_homework){
-        super(p_id,p_index,p_name);
+                       String p_name,String c_id,String has_file,String has_homework){
+        super(p_id,p_index,p_name,c_id);
         this.file_status = has_file;this.homework_status = has_homework;
     }
 
     public TeacherPart(Part part){
-        super(part.getP_id(),part.getP_index(),part.getP_name());
+        super(part.getP_id(),part.getP_index(),part.getP_name(),part.getC_id());
         this.file_status = "未上传";this.homework_status = "未发布";
     }
 

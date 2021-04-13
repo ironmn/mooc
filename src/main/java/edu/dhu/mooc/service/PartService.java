@@ -1,5 +1,7 @@
 package edu.dhu.mooc.service;
 
+import edu.dhu.mooc.entity.Part;
+
 /**
  * @author Xie yiming
  * @version 1.0
@@ -11,4 +13,8 @@ public interface PartService {
 
 
     boolean hasCoursePartIndex(String c_id,Integer p_index);
+
+    boolean addNewPart(Part part);
+
+    boolean deletePart(String p_id);
 }

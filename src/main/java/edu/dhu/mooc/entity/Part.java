@@ -1,5 +1,6 @@
 package edu.dhu.mooc.entity;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -19,10 +20,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Part {
-    @ApiModelProperty(value = "章节对应的唯一id",example = "aaa004")
+    @ApiModelProperty(value = "章节对应的唯一id",example = "aaa004_1")
     private String p_id;
     @ApiModelProperty(value = "章节对应的编号",example = "1")
     private Integer p_index;
     @ApiModelProperty(value = "章节名字",example = "绪论")
     private String p_name;
+    @ApiModelProperty(value = "所属的课程id",example = "aaa004")
+    private String c_id;
 }

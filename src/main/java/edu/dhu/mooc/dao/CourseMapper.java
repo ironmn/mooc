@@ -128,4 +128,11 @@ public interface CourseMapper {
      */
     void dropSCRecordById(@Param("c_id") String c_id, @Param("s_id") String s_id);
 
+    /**
+     *
+     * @param t_id 老师的id
+     * @param c_name 课程名称
+     */
+    List<Course> selectByT_idAndC_name(@Param("t_id") String t_id,
+                               @Param("c_name") String c_name);
 }

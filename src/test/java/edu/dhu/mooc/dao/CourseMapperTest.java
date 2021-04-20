@@ -1,8 +1,10 @@
 package edu.dhu.mooc.dao;
 
+import edu.dhu.mooc.entity.course.Course;
 import edu.dhu.mooc.entity.course.CourseDetail;
 import edu.dhu.mooc.entity.course.CourseInfo;
 import edu.dhu.mooc.entity.Part;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,5 +69,12 @@ class CourseMapperTest {
     @Test
     public void addSCRecordTest(){
         courseMapper.addSCRecord("1189360","aaa001");
+    }
+
+    @Test
+    public void selectByT_idAndC_nameTest(){
+        List<Course> ans = courseMapper.selectByT_idAndC_name("10101011", "asdasd");
+        System.out.println(ans.size());
+        Assert.assertNotNull(ans);
     }
 }

@@ -21,4 +21,7 @@ public interface TeacherService {
     List<Student> getStudentListByCourseId(String c_id);
 
     List<TeacherPart> getMyPartListByCourseId(String c_id);
+
+    //查询是否有重复的课程名
+    boolean findDuplicatedCourseName(String t_id, String c_name);
 }

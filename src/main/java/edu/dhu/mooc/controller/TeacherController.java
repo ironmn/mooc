@@ -22,6 +22,7 @@ import java.util.List;
  * @version 1.0
  * @date 2021/3/19 17:59
  * @describe 老师教学管理页面
+ * @todo TeacherPart还没有完成文件和作业的校验功能
  */
 @Api(value = "教师后台课程管理")
 @RestController
@@ -70,5 +71,23 @@ public class TeacherController {
 
     public List<TeacherPart> getTeacherPart(@PathVariable("c_id") String c_id){
         return teacherService.getMyPartListByCourseId(c_id);
+    }
+
+    @ApiOperation(value = "用于判断课程名是否重复",notes = "前端创建页面的时候需要用到.传入的参数分别是老师的ID和对应的" +
+            "课程名称")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "t_id",example = "19281341485"),
+            @ApiImplicitParam(name = "c_name",example = "test")
+    })
+    @PostMapping("/validCourse")
+
+    public String checkIfCNameValid(@RequestParam("t_id") String t_id,
+                                    @RequestParam("c_name") String c_name){
+        if(teacherService.findDuplicatedCourseName(t_id,c_name)){
+            //表示有这门课了，就返回failed信号
+            return "failed";
+        }
+        //表示没有这门课，那么就返回成功的信号
+        return "success";
     }
 }

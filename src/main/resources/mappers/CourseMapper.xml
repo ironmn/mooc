@@ -11,7 +11,6 @@
     <result column="t_id" jdbcType="VARCHAR" property="t_id" />
     <result column="c_name" jdbcType="VARCHAR" property="c_name" />
     <result column="c_content" jdbcType="VARCHAR" property="c_content" />
-    <result column="c_mail" jdbcType="VARCHAR" property="c_mail" />
   </resultMap>
 
   <resultMap id="FormattedCourseInfo" type="edu.dhu.mooc.entity.course.CourseInfo">
@@ -120,6 +119,9 @@
   </select>
 
 
+  <select id="selectByT_idAndC_name" parameterType="string" resultMap="BaseResultMap">
+    select * from course where t_id = #{t_id} and c_name = #{c_name};
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     <!--
       WARNING - @mbg.generated
